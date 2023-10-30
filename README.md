@@ -14,7 +14,7 @@ Now more on interacting with JSON...
 import <file> from <file path> wont necessarily work. 
 const <filename> = require("file path") works better but lets just fix our import method
 Go to the package.json and add "type: module,"
-Now use "import <file> from '<file>' assery {type:'json'};" YOURE DONE
+Now use "import <file> from '<file>' assert {type:'json'};" YOURE DONE
 
 So lets say that you imported a json full of objects.
 
