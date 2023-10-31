@@ -76,3 +76,31 @@ It is recommended to do your styling in App.CSS.
 
 The next key feature is the use of html within a js function.
 All of your html features are wrapped between <> and </>.
+<---HOOKS COMPONENTS PROPS--->
+When react renders the Application, it actually creates a virtual copy. First, the code acts upon the virtual DOM. 
+Maybe you want to change the Header to read something different with an EventListener. The virtual DOM will render the changed state and make a comparison. If the DOM is not the same as the virtual DOM then the Virtual will take over. State chandge triggers a comparison which will trigger a HOOK.
+
+import React, { useState } from 'react';
+
+function Example() {
+  const [items, setItems] = useState([]);
+
+  const addItem = (newItem) => {
+    setItems([...items, newItem]);
+  };
+
+  return (
+    <div>
+      <button onClick={() => addItem('New Item')}>Add Item</button>
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+State changes can be reversed once the client refreshes the page. This keeps the experience unique to that specific client.
+
+useEffect is used to trigger behavior when a dependency changes.
