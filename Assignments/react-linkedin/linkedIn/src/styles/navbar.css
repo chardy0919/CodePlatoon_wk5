@@ -1,0 +1,72 @@
+#NavBar-Cont{
+    /* position: fixed; */
+    margin: 0;
+    background-color: white;
+    display: flex;
+    border: 1px solid gray;
+    justify-content: space-between;
+  }
+  #personalNav{
+    border: 1px solid gray;
+    display:flex;
+    flex:1;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #businessNav{
+    border: 1px solid gray;
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+  
+  }
+  
+  .homeDiv{
+    display: flex;
+    flex-direction: column;
+  }
+  .homeDiv:hover{
+    text-decoration: underline;    
+  }
+  
+  #homeImg{
+    height:50px;
+    margin: 10px;
+  }
+
+  .nav-button{
+    background-color: transparent;
+    border: transparent;    
+  }
+  
+  #searchBar{
+    background-color: rgb(208, 208, 208);
+    border-radius: 8%;
+    width: 200px;
+  }
+  .nav-icon{
+    width: 15px;
+    /* position: absolute; */
+    /* left: 400px; */
+    height: 15px;
+  }
+  #ad-links{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .nav-button{
+  cursor: pointer;
+  }
+  
+  #Search{
+  width: 15%;
+  border: transparent;
+  background-color: transparent;
+  z-index: 2;
+  width: 75px;
+  
+  }
+  #Search:focus {
+    outline: none;
+  }
