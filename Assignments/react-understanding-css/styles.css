@@ -1,0 +1,36 @@
+*{
+    /* box-sizing: border-box; */
+}
+.container{
+    font-size: 0px;
+}
+.box {
+    position: inline-block;
+    border: 2px black solid;
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    font-size: 18px;
+    padding: 15px;
+}
+.float-box {
+    float: left;
+    border: 2px solid red;
+}
+.text {
+    clear: left;
+    border: 2px solid blue;
+}
+.container2{
+    margin-top: 10px;
+    height: 200px;
+    border: 2px solid red;
+    overflow: auto;
+}
+a{
+    color: green;
+    visited:
+}
+a:visited{
+    color: yellow
+}
