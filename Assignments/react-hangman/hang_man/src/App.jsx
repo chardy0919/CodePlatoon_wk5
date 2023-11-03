@@ -80,24 +80,28 @@ function App() {
 
   return (
     <>
-    <h1>HangMan</h1>
-    <Hangman wrongCount={wrongCount} currentWord={currentWord} />
-      {
-        gameOver
-        ?
-        (<div>
-          <button onClick={()=>handleNewGame()}>New Game</button>
-          <p>{message}</p>
-        </div>)
-        :
-        (<div>
-          <input onChange={(e)=>handleInputChange(e)} type="text" value={answerInput} maxLength="1" minLength="1" />
-          <button onClick={()=>handleSubmit()}>Submit</button>
-          <p>{message}</p>
-        </div>)
-      }
-      
-
+    <h1 class="flex justify-center m-10 text-xl">HangMan</h1>
+    <div class="flex flex-col justify-center">
+      <Hangman wrongCount={wrongCount} currentWord={currentWord}/>
+      <div class="flex justify-center">
+        {
+          gameOver
+          ?
+          (<div>
+            <button onClick={()=>handleNewGame()} class="border-s-black">New Game</button>
+            <p>{message}</p>
+          </div>)
+          :
+          (<div class="flex">
+            <input onChange={(e)=>handleInputChange(e)} type="text" value={answerInput} maxLength="1" class="focus:border-blue-500-1px w-10 bg-slate-100 "/>
+            <button onClick={()=>handleSubmit()}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+</svg></button>
+            <p>{message}</p>
+          </div>)
+        }
+      </div>
+    </div>
     </>
   )
 }

@@ -1,6 +1,4 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: right;
+body{
+  background-color: rgb(217, 230, 241);
+  font-family:'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
