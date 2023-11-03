@@ -3,17 +3,16 @@ import './App.css'
 import axios from "axios"
 import Hangman from './components/Hangman'
 
+
 function App() {
   const [answerInput, setAnswerInput] = useState("")
+  const [answerUnsplit, setAnswerUnsplit] = useState("")
   const [wrongCount, setWrongCount] = useState(0)
   const [answer, setAnswer] = useState([])
   const [currentWord, setCurrentWord] = useState([])
   const [message, setMessage] = useState("")
   const [gameOver, setGameOver] = useState(false)
   const [reload, setReload] = useState(0)
-
-
-  //https://random-word-api.herokuapp.com/word
 
   useEffect(()=>{ 
 
@@ -22,6 +21,7 @@ function App() {
         const response = await axios.get("https://random-word-api.herokuapp.com/word");
         console.log(response.data[0].split(''))
         setAnswer(response.data[0].split(''))
+        setAnswerUnsplit(response.data[0])
 
         console.log(response.data[0].replace(/./g, '_').split(''))
         setCurrentWord(response.data[0].replace(/./g, '_').split(''))
@@ -31,8 +31,6 @@ function App() {
       }
     };
     getRandomWord()
-
-
 
   },[reload])
 
@@ -67,7 +65,7 @@ function App() {
         let newWrongCount = wrongCount + 1
         setWrongCount(newWrongCount)
         if(newWrongCount >= 6){
-          setMessage("You Lose")
+          setMessage(`You lose! The word was... ${answerUnsplit.toUpperCase()}!`)
           setGameOver(true)
         }
       }
@@ -77,22 +75,13 @@ function App() {
         setGameOver(true)
       }
 
-   
-
       setAnswerInput("")
     }
-  
-
-
-
 
   return (
     <>
     <h1>HangMan</h1>
-
     <Hangman wrongCount={wrongCount} currentWord={currentWord} />
-
-
       {
         gameOver
         ?
@@ -102,7 +91,7 @@ function App() {
         </div>)
         :
         (<div>
-          <input onChange={(e)=>handleInputChange(e)} type="text" value={answerInput} maxLength="1" />
+          <input onChange={(e)=>handleInputChange(e)} type="text" value={answerInput} maxLength="1" minLength="1" />
           <button onClick={()=>handleSubmit()}>Submit</button>
           <p>{message}</p>
         </div>)

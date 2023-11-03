@@ -1,18 +1,18 @@
 import React from 'react';
 
 
-function Hangman(props) {
+function Hangman({wrongCount, currentWord}) {
     return (
     
         <p>
         +---+<br />
         |&emsp;&emsp;|<br />
-        {props.wrongCount >= 1 ? "O" : ""}&emsp;&emsp;|<br />
-        {props.wrongCount >= 4 ? "/" : ""}{props.wrongCount >= 2 ? "|" : ""}{props.wrongCount >= 3 ? "\\" : ""}&emsp;&emsp;|<br />
-        {props.wrongCount >= 6 ? "/" : ""}{props.wrongCount >= 5 ? "\\" : ""}&emsp;&emsp;|<br />
+        {wrongCount >= 1 ? "O" : ""}&emsp;&emsp;|<br />
+        {wrongCount >= 4 ? "/" : ""}{wrongCount >= 2 ? "|" : ""}{wrongCount >= 3 ? "\\" : ""}&emsp;&emsp;|<br />
+        {wrongCount >= 6 ? "/" : ""}{wrongCount >= 5 ? "\\" : ""}&emsp;&emsp;|<br />
             |<br />
       {
-      props.currentWord.map((letter, index) =>(
+      currentWord.map((letter, index) =>(
         <span key={index}>
         {letter.toUpperCase()}&emsp;
         </span>
